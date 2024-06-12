@@ -10,9 +10,10 @@ import './index.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      gcTime: 5000,
-      retry: 1,
-      staleTime: 6000
+      gcTime: 15000, // данные будут считаться устаревшими после 15000 миллисекунд и будут удалены
+      retry: 1, //default 3
+      staleTime: 6000, // после 6000 миллисекунд данные будут считаться устаревшими и будут запрошены снова
+      refetchOnReconnect: true 
     }
   }
 });
